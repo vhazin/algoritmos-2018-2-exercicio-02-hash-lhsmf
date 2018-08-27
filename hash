@@ -1,0 +1,29 @@
+#include <studio.h>
+
+int main(void){
+  unsigned int t;
+  scanf("%u", &t);
+  
+  while(t--){
+    unsigned long long a, b, x, n, c, d, m, counter = 0;
+    scanf("%llu %llu %llu %llu %llu %llu %llu" &a, &b, &x, &n, &c, &d, &m);
+    
+    if(a == (m-1) && (n > (d - c))){
+      counter = (d - c) * 2 + 2;
+      printf("1 %llu/n", counter);
+      counter = 0;
+      continue;
+    };
+    
+    if(a == (m-1) && (n > d)){
+      counter = (d - ((a * (x + n) + b) % m)) + (d - c) + 2;
+      printf("2 %llu/n", counter);
+      counter = 0;
+    };
+    
+    if(a == (m-1) && (n < d)){
+      counter = (d - ((a * (x + n) + b) % m)) + 1;
+      printf("2 %llu/n", counter);
+      counter = 0;
+      continue;
+    };
